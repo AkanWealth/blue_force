@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
     res.send("Welcome on board")
 })
 app.use("/api/v1/", require("./routes"))
-    // require("./routes")(app)
+    // require("./routes")(app)git 
 
 
 const PORT = process.env.PORT || 5000;
