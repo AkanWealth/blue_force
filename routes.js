@@ -3,9 +3,6 @@ const appiontment = require("./controllers/appointmentsController")
 const authorization = require("./middlewares/authorization");
 
 module.exports = (app) => {
-    app.get("/"), (req, res) => {
-        res.send("Welcome on board");
-    };
     app.get("/users", authorization, usersController.getAllUsers);
 
     app.post("/login", usersController.login);
