@@ -1,0 +1,22 @@
+{
+    "name": "blueforce",
+    "version": "1.0.0",
+    "description": "appointment task",
+    "main": "app.js",
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "nodemailer": "^6.6.5",
+        "pg": "^8.7.1",
+        "serve-static": "^1.14.1"
+    }
+}
