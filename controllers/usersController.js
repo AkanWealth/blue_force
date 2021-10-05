@@ -2,7 +2,6 @@ const pool = require("../models/db");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 const { tokenGenerator } = require("../utils/tokenGen");
-// const nodemailer = require("nodemailer");
 
 module.exports = {
     async getAllUsers(req, res) {

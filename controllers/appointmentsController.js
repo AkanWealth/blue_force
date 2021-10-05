@@ -1,7 +1,6 @@
 const pool = require("../models/db");
 require("dotenv").config();
 const { tokenGenerator } = require("../utils/tokenGen");
-// const nodemailer = require("nodemailer");
 
 module.exports = {
     async getAllAppointment(req, res) {

@@ -17,29 +17,9 @@ corsOptions = {
 }
 app.use(cors());
 
-// corsOptions = {
-//     origin: 'https://blue-force.herokuapp.com/',
-//     optionsSuccessStatus: 200,
-//     credentials: true,
-// }
-// app.use(function(req, res, next) {
-//     // Website you wish to allow to connect (CORS)
-//     res.setHeader('Access-Control-Allow-Origin', 'https://blue-force.herokuapp.com/');
-//     // Request methods you wish to allow
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//     // Request headers you wish to allow
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-//     // Set to true if you need the website to include cookies in the requests sent
-//     // to the API (e.g. in case you use sessions)
-//     res.setHeader('Access-Control-Allow-Credentials', true);
-//     // Pass to next layer of middleware
-//     next();
-// });
-
 app.get("/", (req, res) => {
-        res.send("Welcome on board")
-    })
-    // app.use("/api/v1/", route)
+    res.send("Welcome on board")
+})
 require("./routes")(app)
 
 
