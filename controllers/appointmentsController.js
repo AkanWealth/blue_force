@@ -41,7 +41,7 @@ module.exports = {
     async createAppointment(req, res) {
         try {
             const { fname, email, mobile, book_appoint } = req.body;
-            const newAppoint = await pool.query("INSERT INTO appointments (fname, email, mobile, book_apoint) VALUES ($1,$2,$3,$4) RETURNING *", [fname, email, mobile, book_appoint])
+            const newAppoint = await pool.query("INSERT INTO appointments (fname, email, mobile, book_appoint) VALUES ($1,$2,$3,$4) RETURNING *", [fname, email, mobile, book_appoint])
             const token = tokenGenerator(newAppoint.rows[0]);
             res.status(201).json({
                 message: "Appointment created",
