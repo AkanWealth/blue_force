@@ -11,10 +11,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-// corsOptions = {
-//     origin: "https://appointment202.herokuapp.com/",
-//     optionsSuccessStatus: 200
-// }
+corsOptions = {
+    origin: 'https://blue-force.herokuapp.com/',
+    optionsSuccessStatus: 200
+}
 app.use(function(req, res, next) {
     // Website you wish to allow to connect (CORS)
     res.setHeader('Access-Control-Allow-Origin', 'https://blue-force.herokuapp.com/');
