@@ -43,26 +43,6 @@ module.exports = {
             const { fname, email, mobile, book_appoint } = req.body;
             const newAppoint = await pool.query("INSERT INTO appointments (fname, email, mobile, book_apoint) VALUES ($1,$2,$3,$4) RETURNING *", [fname, email, mobile, book_appoint])
             const token = tokenGenerator(newAppoint.rows[0]);
-            // const transporter = nodemailer.createTransport({
-            //     service: "gmail",
-            //     auth: {
-            //         user: process.env.EMAIL,
-            //         pass: process.env.PASSWORD
-            //     }
-            // });
-            // const mailOptions = {
-            //     from: process.env.EMAIL,
-            //     to: email,
-            //     subject: "Appointment Confirmation",
-            //     text: `Hello ${fname},\n\nThank you for booking an appointment with us.\n\nPlease click on the following link, or paste this into your browser to complete the process:\n\nhttp://localhost:3000/appointment/confirmation/${token}\n\nIf you did not request this, please ignore this email and your password will remain unchanged.\n\nThank you,\n\nThe Team`
-            // };
-            // transporter.sendMail(mailOptions, function (err, info) {
-            //     if (err) {
-            //         console.log(err);
-            //     } else {
-            //         console.log(info);
-            //     }
-            // });
             res.status(201).json({
                 message: "Appointment created",
                 data: newAppoint.rows[0],
