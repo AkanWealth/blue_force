@@ -49,6 +49,7 @@ module.exports = {
             const user = await pool.query(
                 "SELECT first_name,last_name, email, password, user_role.role_id, user_role.user_id FROM users INNER JOIN user_role ON users.user_id = user_role.user_id WHERE users.email = $1", [email]
             );
+            console.log(user.rows);
 
             /* check for user */
             if (!user.rows[0]) {
@@ -56,6 +57,7 @@ module.exports = {
                     .status(401)
                     .send({ error: "Email or password is incorrect" });
             }
+            console.log("hi1")
             const validPassword = await bcrypt.compare(
                 password,
                 user.rows[0].password
@@ -63,11 +65,14 @@ module.exports = {
             if (!validPassword) {
                 return res.status(401).send({ error: "Incorrect Email or Password" });
             }
-            /*  give the token */
+            console.log("hi2")
+                /*  give the token */
             const token = tokenGenerator(user.rows[0]);
+            console.log("hi3")
             return res.status(200).json({ data: user.rows[0], token });
         } catch (error) {
             res.status(500).send({ error: "Server Error" });
+            console.log(error.message);
         }
     },
     async removeUser(req, res) {
