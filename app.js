@@ -9,7 +9,7 @@ app.use(serveStatic(path.join(__dirname, 'dist')));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const corsOptions = {
+corsOptions = {
     origin: 'https://blue-force.herokuapp.com/',
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200
@@ -38,7 +38,8 @@ app.use(function(req, res, next) {
 app.get("/", (req, res) => {
     res.send("Welcome on board")
 })
-require("./routes")(app)
+app.use("/api/v1/", require("./routes"))
+    // require("./routes")(app)
 
 
 const PORT = process.env.PORT || 5000;
